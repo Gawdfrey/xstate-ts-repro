@@ -21,7 +21,9 @@ export const MainMachineProvider = ({
     mainMachine.provide({
       actors: {
         getSomething: fromPromise(({ input }) => {
-          console.log("getSomething", input);
+          setTimeout(() => {
+            console.log("getSomething", input);
+          }, 2000);
           return Promise.resolve("test");
         }),
       } satisfies MainMachineActors,

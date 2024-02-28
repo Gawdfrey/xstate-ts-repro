@@ -1,4 +1,4 @@
-import { PromiseActorLogic, assign, setup } from "xstate";
+import { PromiseActorLogic, setup } from "xstate";
 
 export type MainMachineInitialInput = {
   test: string;
@@ -29,11 +29,7 @@ export const mainMachine = setup({
       invoke: {
         src: "getSomething",
         input: ({ context }) => context,
-        onDone: {
-          target: "done",
-        },
       },
     },
-    done: {},
   },
 });
